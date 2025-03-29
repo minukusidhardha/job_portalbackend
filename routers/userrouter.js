@@ -1,11 +1,11 @@
 const express=require('express');
 const { adduser, getalluser, login, Uploadprofile, Uploadcv, Getone } = require('../controllers/usercontroller');
 const auth = require('../middleware/auth');
-const multer = require('multer');
+const multers = require('multer');
 const os = require('os');
 const path1=require('path')
-let upload = multer({ dest: path1.join(os.tmpdir(), 'profile/') });
-let upload1 = multer({ dest: path1.join(os.tmpdir(), 'cv/') });
+let upload = multers({ dest: path1.join(os.tmpdir(), 'profile/') });
+let upload1 = multers({ dest: path1.join(os.tmpdir(), 'cv/') });
 const urouter=express.Router();
 urouter.post('/add',adduser)
 urouter.post('/login',login)
