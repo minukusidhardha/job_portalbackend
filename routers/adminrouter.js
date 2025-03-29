@@ -1,0 +1,13 @@
+const express=require('express');
+const auth=require('../middleware/auth');
+const { asignup, alogin, addjobinadmin, getalljobsinadmin, alluserListing, fetchbycity, fetchbyjobid, fetchjobbyuser } = require('../controllers/admincontroller');
+const router=express.Router();
+router.post('/signup',asignup);
+router.post('/login',alogin);
+router.post('/add',addjobinadmin);
+router.get('/get',getalljobsinadmin);
+router.get('/getuser',alluserListing);
+router.get('/getcity/:city',fetchbycity);
+router.get('/fetch/:jid',fetchbyjobid);
+router.get('/extract/:uid',fetchjobbyuser);
+module.exports=router;
