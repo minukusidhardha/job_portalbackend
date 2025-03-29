@@ -8,6 +8,10 @@ const arouter = require('./routers/applicationrouter');
 const aurouter = require('./routers/authrouter');
 const cors=require('cors')
 const app=express();
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something went wrong!');
+  });
 app.use(cors())
 dbconnect();
 app.use(express.json());
