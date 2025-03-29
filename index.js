@@ -12,16 +12,15 @@ app.use((err, req, res, next) => {
     console.error(err.stack);
     res.status(500).send('Something went wrong!');
   });
-  app.get('/', (req, res) => {
-    res.send('Hello World!');
-});
+  console.log('hello');
 app.use(cors())
 dbconnect();
 app.use(express.json());
+console.log('hii')
 app.use('/api/jobs',jrouter);
 app.use('/api/user',urouter);
 app.use('/api/admin',router);
 app.use('/api/application',arouter);
 app.use('/api/auth',aurouter);
-
+console.log('hii hello')
 module.exports=app;
