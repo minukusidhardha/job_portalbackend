@@ -10,6 +10,7 @@ async function dbconnect() {
 
   try {
     const dbURI = process.env.DB_URI;
+    console.log(dbURI);
     if (!dbURI) {
       throw new Error('DB_URI environment variable is not set');
     }

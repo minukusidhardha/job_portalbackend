@@ -35,6 +35,7 @@ exports.Assignedjobtouser=async(req,res)=>{
         res.json(assign);
     }
     catch(err){
+        re.status(400).json({'msg':'something wrong '+err})
         
     }
 

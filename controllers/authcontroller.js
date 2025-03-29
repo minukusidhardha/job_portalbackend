@@ -3,6 +3,7 @@ const bcrypt=require('bcryptjs')
 const jwt=require('jsonwebtoken');
 const User = require("../models/user");
 exports.Login=async(req,res)=>{
+    try{
     const {username,password}=req.body;
     let admin=await Admin.findOne({'username':username})
     if(admin){
@@ -37,6 +38,10 @@ exports.Login=async(req,res)=>{
             'token':token,
             'role':user.role
         })
+    }
+    }
+    catch(err){
+        res.status(400).json({'msg':'something wrong '+err})
     }
 }
 exports.resetpassword = async (req, res) => {

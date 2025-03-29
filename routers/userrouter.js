@@ -2,8 +2,10 @@ const express=require('express');
 const { adduser, getalluser, login, Uploadprofile, Uploadcv, Getone } = require('../controllers/usercontroller');
 const auth = require('../middleware/auth');
 const multer = require('multer');
-let upload=multer({dest:'C:/Users/user/OneDrive/Desktop/hexaware/jobportalui/public/profile/'})
-let upload1=multer({dest:'C:/Users/user/OneDrive/Desktop/hexaware/jobportalui/public/cv/'})
+const os = require('os');
+const path1=require('path')
+let upload = multer({ dest: path1.join(os.tmpdir(), 'profile/') });
+let upload1 = multer({ dest: path1.join(os.tmpdir(), 'cv/') });
 const urouter=express.Router();
 urouter.post('/add',adduser)
 urouter.post('/login',login)
