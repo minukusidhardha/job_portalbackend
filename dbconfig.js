@@ -16,10 +16,7 @@ async function dbconnect() {
     }
 
     // Connect to MongoDB
-    await mongoose.connect(dbURI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    await mongoose.connect(dbURI);
 
     isConnected = true; // Mark as connected
     console.log('DB connected');
