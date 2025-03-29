@@ -16,5 +16,5 @@ app.use('/api/user',urouter);
 app.use('/api/admin',router);
 app.use('/api/application',arouter);
 app.use('/api/auth',aurouter);
-const PORT=process.env.PORT || 5001;
-app.listen(PORT,()=>{console.log('listening to port number')})
+
+module.exports=app;
