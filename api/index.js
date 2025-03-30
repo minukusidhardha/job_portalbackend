@@ -23,4 +23,6 @@ app.use('/api/admin',router);
 app.use('/api/application',arouter);
 app.use('/api/auth',aurouter);
 console.log('hii hello')
-module.exports=app;
+module.exports = (req, res) => {
+  return app(req, res); // This will handle the serverless function response
+};
