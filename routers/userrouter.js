@@ -1,6 +1,6 @@
 const express=require('express');
-const { adduser, getalluser, login, Uploadprofile, Uploadcv, Getone } = require('../../controllers/usercontroller');
-const auth = require('../../middleware/auth');
+const { adduser, getalluser, login, Uploadprofile, Uploadcv, Getone } = require('../controllers/usercontroller');
+const auth = require('../middleware/auth');
 const multers = require('multer');
 const os = require('os');
 const path1=require('path')

@@ -1,5 +1,5 @@
 const express=require('express');
-const dbconnect = require('../dbconfig');
+const dbconnect = require('./dbconfig');
 const jrouter = require('./routers/jobrouter');
 const urouter = require('./routers/userrouter');
 const router = require('./routers/adminrouter');
@@ -13,9 +13,13 @@ app.use((err, req, res, next) => {
   });
   console.log('hello');
 app.use(cors())
+let port=3000;
 dbconnect();
 app.use(express.json());
 console.log('hii')
+// app.get('/', (req, res) => {
+//   res.send('Welcome to the job API!');
+// });
 app.use('/api/jobs',jrouter);
 app.use('/api/user',urouter);
 app.use('/api/admin',router);
