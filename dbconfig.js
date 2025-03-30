@@ -9,16 +9,16 @@ async function dbconnect() {
   }
 
   try {
-    const dbURI = process.env.DB_URI;
+    const dbURI = 'mongodb+srv://minukusidhardh:sidhu123@projectcluster1.y10st.mongodb.net/JobPortal?retryWrites=true&w=majority&appName=projectCluster1';
     console.log(dbURI);
     if (!dbURI) {
       throw new Error('DB_URI environment variable is not set');
     }
 
     // Connect to MongoDB
-    await mongoose.connect(dbURI);
+    let connect=await mongoose.connect(dbURI);
 
-    isConnected = true; // Mark as connected
+    connect = true; // Mark as connected
     console.log('DB connected');
   } catch (err) {
     console.error('Database connection error:', err);

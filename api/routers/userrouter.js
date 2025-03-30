@@ -1,6 +1,6 @@
 const express=require('express');
-const { adduser, getalluser, login, Uploadprofile, Uploadcv, Getone } = require('../controllers/usercontroller');
-const auth = require('../middleware/auth');
+const { adduser, getalluser, login, Uploadprofile, Uploadcv, Getone } = require('../../controllers/usercontroller');
+const auth = require('../../middleware/auth');
 const multers = require('multer');
 const os = require('os');
 const path1=require('path')
@@ -13,4 +13,10 @@ urouter.get('/get',auth,getalluser)
 urouter.get('/getone',auth,Getone)
 urouter.put('/profile',auth,upload.single('file'),Uploadprofile);
 urouter.put('/cv',auth,upload1.single('file'),Uploadcv);
+// urouter.post('/add',(req,res)=>{adduser})
+// urouter.post('/login',(req,res)=>{login})
+// urouter.get('/get',(req,res)=>{auth,getalluser})
+// urouter.get('/getone',(req,res)=>{auth,Getone})
+// urouter.put('/profile',(req,res)=>{auth,upload.single('file'),Uploadprofile});
+// urouter.put('/cv',(req,res)=>{auth,upload1.single('file'),Uploadcv});
 module.exports=urouter;

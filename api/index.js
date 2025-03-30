@@ -1,11 +1,10 @@
 const express=require('express');
 const dbconnect = require('../dbconfig');
-const { json } = require('body-parser');
-const jrouter = require('../routers/jobrouter');
-const urouter = require('../routers/userrouter');
-const router = require('../routers/adminrouter');
-const arouter = require('../routers/applicationrouter');
-const aurouter = require('../routers/authrouter');
+const jrouter = require('./routers/jobrouter');
+const urouter = require('./routers/userrouter');
+const router = require('./routers/adminrouter');
+const arouter = require('./routers/applicationrouter');
+const aurouter = require('./routers/authrouter');
 const cors=require('cors')
 const app=express();
 app.use((err, req, res, next) => {
