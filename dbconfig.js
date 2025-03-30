@@ -9,7 +9,7 @@ async function dbconnect() {
   }
 
   try {
-    const dbURI =process.env.DB_URL;//'mongodb+srv://minukusidhardh:sidhu123@projectcluster1.y10st.mongodb.net/JobPortal?retryWrites=true&w=majority&appName=projectCluster1'; 
+    const dbURI =process.env.DB_URI;//'mongodb+srv://minukusidhardh:sidhu123@projectcluster1.y10st.mongodb.net/JobPortal?retryWrites=true&w=majority&appName=projectCluster1'; 
     // //process.env.DB_URL
     console.log(dbURI);
     if (!dbURI) {
