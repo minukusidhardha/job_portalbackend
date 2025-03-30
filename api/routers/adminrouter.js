@@ -1,6 +1,5 @@
 const express=require('express');
-const auth=require('../middleware/auth');
-const { asignup, alogin, addjobinadmin, getalljobsinadmin, alluserListing, fetchbycity, fetchbyjobid, fetchjobbyuser } = require('../controllers/admincontroller');
+const { asignup, alogin, addjobinadmin, getalljobsinadmin, alluserListing, fetchbycity, fetchbyjobid, fetchjobbyuser } = require('../../controllers/admincontroller');
 const router=express.Router();
 router.post('/signup',asignup);
 router.post('/login',alogin);
