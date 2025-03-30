@@ -15,9 +15,9 @@ app.use(cors());
 dbconnect();
 console.log('hello');
 app.use(express.json());
-// app.get('/', (req, res) => {
-//   res.send('Welcome to the job API!');
-// });
+app.get('/', (req, res) => {
+  res.send('Welcome to the job API!');
+});
 app.use('/api/jobs',jrouter);
 app.use('/api/user',urouter);
 app.use('/api/admin',router);
