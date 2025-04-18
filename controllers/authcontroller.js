@@ -46,9 +46,7 @@ exports.Login=async(req,res)=>{
 }
 exports.resetpassword = async (req, res) => {
     try {
-        console.log('inside')
         const { username, password } = req.body;
-        // console.log(username,password)
         let admin = await Admin.findOne({ 'username': username })
         if (admin) {
             let isValid = await bcrypt.compare(password, admin.password);
@@ -66,7 +64,6 @@ exports.resetpassword = async (req, res) => {
         if (user) {
             let isValid = await bcrypt.compare(password, user.password);
             if (!isValid) {
-                console.log('hii')
                 let salt=10;
                 let hashpassword=await bcrypt.hash(password,salt)
                 user.password=hashpassword;

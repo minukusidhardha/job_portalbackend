@@ -46,9 +46,7 @@ exports.login=async(req,res)=>{
 
 exports.getalluser=async(req,res)=>{
    try{
-      // console.log('hello')
       let obj=req.user;
-      // console.log(obj)
       let username=obj.username;
       let admin=await Admin.findOne({'username':username});
       if (!admin)
@@ -63,9 +61,7 @@ exports.getalluser=async(req,res)=>{
 }
 exports.Getone=async(req,res)=>{
    try{
-      // console.log('hello')
       let obj=req.user;
-      // console.log(obj)
       let username=obj.username;
       let user=await User.findOne({'username':username});
       if (!user)
@@ -81,16 +77,12 @@ exports.Uploadprofile=async(req,res)=>{
    try{
       let obj=req.user;
       let username=obj.username;
-      // console.log(obj)
       let user=await User.findOne({'username':username})
       if(!user)
          res.status(400).json({'msg':'UnAthorized'})
       let file=req.file;
       let filename=file.filename;
-      let type=file.mimetype;
-      user.profilepic=filename+'.'+type.split('/')[1]
-      // console.log(profile)
-      // user=new user({'profilepic':profile})
+      user.profilepic=filename;
       user=await user.save(user);
       res.json(user)
 
@@ -103,24 +95,14 @@ exports.Uploadcv=async(req,res)=>{
    try{
       let obj=req.user;
       let username=obj.username;
-      // console.log(obj)
       let user=await User.findOne({'username':username})
       if(!user)
          res.status(400).json({'msg':'UnAthorized'})
       let file=req.file;
       let filename=file.filename;
-      let type=file.mimetype.split('/')[1];
-      console.log(type)
-      let allowedtypes=['pdf','docx']
-      if(allowedtypes.includes(type)){
-         user.cv=filename+'.'+type;
+         user.cv=filename;
          user=await user.save(user);
          res.json(user)
-      }
-      else{
-          res.status(400).json({'msg':'Allowed types '+allowedtypes})
-      }
-
    }
    catch(err){
       res.status(400).json({'msg':'something Wrong '+err})

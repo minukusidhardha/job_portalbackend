@@ -12,7 +12,6 @@ exports.asignup=async(req,res)=>{
         let hashcodded=await bcrypt.hash(password,salt);
         let adminobj=new Admin({'username':username,'password':hashcodded});
         adminobj=await adminobj.save();
-        console.log('hii')
         return res.json(adminobj);
     }
     catch(err){
@@ -115,12 +114,10 @@ exports.fetchbyjobid=async(req,res)=>{
 exports.fetchjobbyuser=async(req,res)=>{
     try{
         const uid=req.params.uid;
-        console.log(uid)
         const application=await Applications.find({'user':uid}).populate("job");
         if(!application)
             res.status(400).json({'msg':'Invalid ID'})
         let appmapping=application.map(e=>e.job)
-        //console.log(application)
         res.json(appmapping);
        
     }

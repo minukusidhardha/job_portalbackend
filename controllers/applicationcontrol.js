@@ -11,7 +11,6 @@ exports.addapplication = async (req, res) => {
         const user = await User.findById(uid);
         if (!user)
             res.status(400).json({ 'msg': 'Invalid job ID' });
-        // console.log('hello');
         let applicationobj = new Applications({ 'job': jid, 'user': uid });
         applicationobj = await applicationobj.save();
         res.json(applicationobj);
