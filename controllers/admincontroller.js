@@ -4,7 +4,6 @@ const bcrypt=require('bcryptjs');
 const jwt = require("jsonwebtoken");
 const User = require("../models/user");
 const Applications = require("../models/apllication");
-const { application } = require("express");
 
 exports.asignup=async(req,res)=>{
     try{
